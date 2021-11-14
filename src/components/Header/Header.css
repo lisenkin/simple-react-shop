@@ -1,0 +1,21 @@
+.header{   
+   border-bottom: 1px solid grey;
+}
+.header__container{
+    margin: 0;
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.header__text{
+    margin: 40px 0;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    font-style: none;
+}
+.header__cart{
+align-items: center;
+}
