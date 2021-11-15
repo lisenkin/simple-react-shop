@@ -27,17 +27,19 @@ const CardItemInfo = (props) => {
             return
         }
     }, [idItem])
-    const { name, price, image } = item
+
+    
+    const { name, price, image,weight } = item
     return (
         <div className='info-item__wrap'>
             <div className='info-img'>
-                <img src={image} />
+                <img src={image} alt={'sorry without pic:('} />
             </div>
             <div className='info-item'>
                 <h4 className='item-title'>{name}</h4>
-                <p className='description'>
-                   
-                </p>
+                
+                <p className='description'>{weight}</p>
+                
                 <h3 className='item-price'>{price} <span>nok</span></h3>
 
                 <ButtonInCart cart={cart} id={idItem} addToCart={addToCart} allRemoveToCart={allRemoveToCart} />

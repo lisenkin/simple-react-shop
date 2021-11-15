@@ -14,7 +14,7 @@ export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart }) => {
             return
         }
         setItemInCart(false)
-    }, [cart])
+    }, [cart, item.length])
 
     const classButton = cn({
         'item-button': true,
@@ -39,7 +39,7 @@ const CardListItem = ({ id, name, price, image, addToCart, allRemoveToCart, cart
         <div className="shop-item">
 
             <div className="img-wrap" onClick={() => showInfo(id)}>
-                <img src={image}  />
+                <img src={image} alt={'Click for Details'}  />
             </div>
 
             <h4 className="item-title">{name}</h4>

@@ -1,4 +1,8 @@
 
+//import image_1 from '../images/image-1.png';
+//
+//not really sure that i can add images in this json in this task
+
 export default class ShopServices {
     data = [
         {
