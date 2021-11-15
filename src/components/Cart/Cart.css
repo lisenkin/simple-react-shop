@@ -1,0 +1,46 @@
+.empty-cart  {
+    text-align: center;
+    font-size: 35px;
+}
+table {
+    margin: 20px 0 0 0;
+    text-align: center;
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 20px;
+}
+td {
+    padding: 5px;
+    border-top: 1px solid #3498db;    
+}
+tr th {
+    padding: 5px;
+}
+tr th:first-child,
+tr td:first-child 
+ {
+    border-right: 1px solid #3498db;
+}
+td button {
+    text-align: center;
+    margin: 0 10px;
+    padding: 5px 12px;
+    border-radius: 50%;
+    background: transparent;
+    font-size: 20px;
+}
+.inc {
+    border: 1px solid #27ae60;
+}
+.dec {
+    border: 1px solid #e67e22;
+}
+.del {
+    border: 1px solid #c0392b;
+}
+.total-price {
+    margin: 20px 0 0 0;
+    font-weight: 400;
+    text-align: right;
+    font-size: 30px;
+}

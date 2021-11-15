@@ -1,27 +1,28 @@
-import {Switch, Route } from 'react-router-dom';
-import Main from '../Main/Main';
-import ProductCard from '../ProductCard/ProductCard';
-import Cart from '../Cart/Cart';
-import './App.css';
-import products from '../../utils/data.js';
+import React from 'react'
 
-import './App.css';
+import './App.css'
+
+import Header from '../Header/header'
+import Cart from '../Cart/cart'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import {
+    AllItem,
+} from '../pages'
+import CardItemInfo from '../CardItemInfo/cardItemInfo'
 
 
-function App() {
- // const addedData = data.filter((data) => data.isInCart === true);
-
-  return (
-    <div className="app">
-      <Switch>
-        <Route exact path="/">
-          <Main products={products}/>
-        </Route>
-        <Route exact path="/cart">
-          <Cart products={products}/>
-        </Route>
-      </Switch>
-    </div>
-  );
+const App = () => {
+    return (
+        <BrowserRouter>
+            <div className="container">
+                <Header />
+                <Switch>
+                    <Route exact path={["/", "/react-shop/"]} component={AllItem} />
+                    <Route path="/item/:id" render={({ match }) => <CardItemInfo idItem={+match.params.id} />} />
+                    <Route path="/cart" component={Cart} />
+                </Switch>
+            </div>
+        </BrowserRouter >
+    )
 }
-export default App;
+export default App
