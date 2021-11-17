@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect,setState } from 'react'
+
 import './cardItemInfo.css'
 import { connect } from 'react-redux'
 import { ButtonInCart } from '../CardListItem/cardListItem'
@@ -12,12 +13,12 @@ const CardItemInfo = (props) => {
         idItem,
         cart,
         addToCart,
-        allRemoveToCart
+        allRemoveToCart,
     } = props
 
-   
+
     const [item, setItem] = useState({})
-   
+    const [optionId, setOptionId] = useState(0)
     useEffect(() => {
         if (items.length) {
             setItem(() => {
@@ -30,38 +31,40 @@ const CardItemInfo = (props) => {
         }
     }, [idItem, items])
 
-    
     //add  localstorage for currentid 
     const currentCard = JSON.parse(localStorage.getItem('currentCard'))
-    console.log(currentCard)
+ 
+//options is really awfull :)
     return (
-        <div className='info-item__wrap'>
-            <div className='info-img'>
+        <div className='info__item_wrap'>
+            <div className='info__img'>
                 <img src={currentCard.image} alt={'sorry without pic:('} />
             </div>
-            <div className='info-item'>
+            <div className='info__item'>
                 <h4 className='item-title'>{currentCard.name}</h4>
                 <p className='description'>{currentCard.brand}</p>
                 <p className='description'>{currentCard.weight} <span>kg</span></p>
                 <h3 className='item-price'>{currentCard.price} <span>nok</span></h3>
                 <ul>
-                {
-                    currentCard.options.map((option, i) => (
-                        <li >
-                            <p>{option.color}</p>
-                            <p>
-                                { 
-                                option.power.map((kindOfPower, i) => (
-                                    <span key={i}>{kindOfPower}</span> 
-                                ))}
-                            </p>
-                            <p>{option.quantity}</p>
-                        
-                            </li>
-                    ))
-                }
-                </ul>
-                
+                    {
+                        currentCard.options.map((option, i) => (
+                            <button style={{ backgroundColor: option.color , color: option.color,borderRadius: 100,
+                                height: 35, weight: 35 }} onClick= {() => (setOptionId(i)) }>  color  </button>
+                        ))
+                    }
+                 </ul>
+                     {
+                         (currentCard.options[optionId].hasOwnProperty("power")) ? <p className="options" > Power: {
+                             currentCard.options[optionId].power.map((kindOfPower, i) => (<button>{kindOfPower} </button>))}</p>
+                             : ""
+                     }
+                     {
+                         (currentCard.options[optionId].hasOwnProperty("storage")) ? <p className="options">Storage: {
+                             currentCard.options[optionId].storage.map((kindOfStorage, i) => (<button>{kindOfStorage} </button>))}</p>
+                             : ""
+                     }
+               <p className="options">Available: {currentCard.options[optionId].quantity}</p>
+
 
                 <ButtonInCart cart={cart} id={idItem} addToCart={addToCart} allRemoveToCart={allRemoveToCart} />
             </div>
