@@ -32,12 +32,8 @@ const CardItemInfo = (props) => {
 
     
     //add  localstorage for currentid 
-
-  
-    
     const currentCard = JSON.parse(localStorage.getItem('currentCard'))
     console.log(currentCard)
-    
     return (
         <div className='info-item__wrap'>
             <div className='info-img'>
@@ -51,7 +47,6 @@ const CardItemInfo = (props) => {
                 <ul>
                 {
                     currentCard.options.map((option, i) => (
-                        
                         <li >
                             <p>{option.color}</p>
                             <p>

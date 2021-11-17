@@ -1,4 +1,3 @@
-
 import image_1 from '../images/image-1.jpg';
 import image_2 from '../images/image-2.jpg';
 import image_3 from '../images/image-3.jpg';
@@ -9,9 +8,6 @@ import image_7 from '../images/image-7.jpg';
 import image_8 from '../images/image-8.jpg';
 import image_9 from '../images/image-9.jpg';
 import image_10 from '../images/image-10.jpg';
-//
-//not really sure that i can add images in this json in this task
-
 export default class ShopServices {
     data = [
         {
