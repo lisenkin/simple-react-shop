@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { addToCart, allRemoveToCart } from '../../actions/actions'
 import cn from 'classnames'
 
+
 export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart }) => {
     const [itemInCart, setItemInCart] = useState(false)
     const item = cart.filter(item => item.id === id)
@@ -33,19 +34,21 @@ export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart }) => {
         </button>
     )
 }
-const CardListItem = ({ id, name, price, image, addToCart, allRemoveToCart, cart, showInfo }) => {
+
+const CardListItem = ({ item, addToCart, allRemoveToCart, cart, showInfo }) => {
     
     return (
         <div className="shop-item">
 
-            <div className="img-wrap" onClick={() => showInfo(id)}>
-                <img src={image} alt={'Click for Details'}  />
+            <div className="img-wrap" onClick={() => { showInfo(item.id);
+                 localStorage.setItem('currentCard', JSON.stringify(item))}}>
+                <img src={item.image} alt={'Click for Details'}  />
             </div>
 
-            <h4 className="item-title">{name}</h4>
-            <h3 className="item-price">{price} <span>nok</span></h3>
+            <h4 className="item-title">{item.name}</h4>
+            <h3 className="item-price">{item.price} <span>nok</span></h3>
 
-            <ButtonInCart cart={cart} id={id} addToCart={addToCart} allRemoveToCart={allRemoveToCart} />
+            <ButtonInCart cart={cart} id={item.id} addToCart={addToCart} allRemoveToCart={allRemoveToCart} />
     
         </div>
     )

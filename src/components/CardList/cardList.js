@@ -16,7 +16,7 @@ const CardListContainer = (props) => {
     useEffect(() => {
         itemsLoading()
         shopService.getAll().then(data => itemLoaded(data))
-    }, [])
+    }, [itemLoaded, itemsLoading, shopService])
 
     if(items.loading) {
         return <Loading/>
@@ -31,7 +31,7 @@ const CardList = ({ items, showInfo }) => {
             <div className="item-container">
                 {items.map((item) => {
                     return (
-                        <CardListItem key={item.id} {...item} showInfo={showInfo}  />
+                        <CardListItem key={item.id} item={item} showInfo={showInfo}  />
                     )
                 })}
             </div>

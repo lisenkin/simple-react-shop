@@ -4,6 +4,8 @@ import { connect } from 'react-redux'
 import { ButtonInCart } from '../CardListItem/cardListItem'
 import { addToCart, allRemoveToCart } from '../../actions/actions'
 
+
+
 const CardItemInfo = (props) => {
     const {
         items,
@@ -21,36 +23,61 @@ const CardItemInfo = (props) => {
             setItem(() => {
                 const [item] = items.filter(({ id }) => id === idItem)
                 return {
-                    ...item
+                    item
                 }
             })
             return
         }
-    }, [idItem])
+    }, [idItem, items])
 
     
-    const { name, price, image,weight } = item
+    //add  localstorage for currentid 
+
+  
+    
+    const currentCard = JSON.parse(localStorage.getItem('currentCard'))
+    console.log(currentCard)
+    
     return (
         <div className='info-item__wrap'>
             <div className='info-img'>
-                <img src={image} alt={'sorry without pic:('} />
+                <img src={currentCard.image} alt={'sorry without pic:('} />
             </div>
             <div className='info-item'>
-                <h4 className='item-title'>{name}</h4>
+                <h4 className='item-title'>{currentCard.name}</h4>
+                <p className='description'>{currentCard.brand}</p>
+                <p className='description'>{currentCard.weight} <span>kg</span></p>
+                <h3 className='item-price'>{currentCard.price} <span>nok</span></h3>
+                <ul>
+                {
+                    currentCard.options.map((option, i) => (
+                        
+                        <li >
+                            <p>{option.color}</p>
+                            <p>
+                                { 
+                                option.power.map((kindOfPower, i) => (
+                                    <span key={i}>{kindOfPower}</span> 
+                                ))}
+                            </p>
+                            <p>{option.quantity}</p>
+                        
+                            </li>
+                    ))
+                }
+                </ul>
                 
-                <p className='description'>{weight}</p>
-                
-                <h3 className='item-price'>{price} <span>nok</span></h3>
 
                 <ButtonInCart cart={cart} id={idItem} addToCart={addToCart} allRemoveToCart={allRemoveToCart} />
             </div>
         </div>
     )
 }
-const mapStateToProps = ({ items, cart }) => {
+const mapStateToProps = ({ items, cart, item }) => {
     return {
         items: items.allItem,
-        cart: cart.cartItems
+        cart: cart.cartItems,
+        item: item
     }
 }
 const mapDispatchToProps = {

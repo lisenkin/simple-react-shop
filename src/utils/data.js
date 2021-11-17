@@ -1,5 +1,14 @@
 
-//import image_1 from '../images/image-1.png';
+import image_1 from '../images/image-1.jpg';
+import image_2 from '../images/image-2.jpg';
+import image_3 from '../images/image-3.jpg';
+import image_4 from '../images/image-4.jpg';
+import image_5 from '../images/image-5.jpg';
+import image_6 from '../images/image-6.jpg';
+import image_7 from '../images/image-7.jpg';
+import image_8 from '../images/image-8.jpg';
+import image_9 from '../images/image-9.jpg';
+import image_10 from '../images/image-10.jpg';
 //
 //not really sure that i can add images in this json in this task
 
@@ -10,6 +19,7 @@ export default class ShopServices {
         "name": "Philips hue bulb",
         "brand": "Philips",
         "price": "500",
+        'image': image_1,
         "available": true,
         "weight": 0.2,
         "options": [
@@ -30,6 +40,7 @@ export default class ShopServices {
             "name": "Trådfria Lampor",
             "brand": "IKEA",
             "price": "300",
+            'image': image_2,
             "available": true,
             "weight": 0.2,
             "options": [
@@ -55,6 +66,7 @@ export default class ShopServices {
             "name": "Playstation 4",
             "brand": "Sony",
             "price": "5000",
+            'image': image_3,
             "available": true,
             "weight": 2.1,
             "options": [
@@ -74,6 +86,7 @@ export default class ShopServices {
                 "name": "Nintendo switch",
                 "brand": "Nintendo",
                 "price": "4500",
+                'image': image_4,
                 "available": true,
                 "weight": 1.6,
                 "options": [
@@ -99,6 +112,7 @@ export default class ShopServices {
                 "name": "Bluetooth speaker",
                 "brand": "JBL",
                 "price": "800",
+                'image': image_5,
                 "available": false,
                 "weight": 0.5,
                 "options": [
@@ -121,6 +135,7 @@ export default class ShopServices {
             "name": "Bluetooth speaker",
             "brand": "Marshall",
             "price": "950",
+            'image': image_6,
             "available": true,
             "weight": 0.5,
             "options": [
@@ -143,6 +158,7 @@ export default class ShopServices {
             "name": "Electrical toothbrush",
             "brand": "BRAUN",
             "price": "950",
+            'image': image_7,
             "available": false,
             "weight": 0.4,
             "options": [
@@ -161,6 +177,7 @@ export default class ShopServices {
             "name": "Samsung 40 UHD Smart TV",
             "brand": "SAMSUNG",
             "price": "3200",
+            'image': image_8,
     "available": true,
     "weight": 8.2,
     "options": [
@@ -175,6 +192,7 @@ export default class ShopServices {
     "name": "BenQ GW2765HE Eye-Care",
     "brand": "BenQ",
     "price": "2700",
+    'image': image_9,
     "available": false,
     "weight": 3.9,
     "options": [
@@ -189,6 +207,7 @@ export default class ShopServices {
     "name": "Corsair HS60 gaming headset",
     "brand": "Corsair",
     "price": "1200",
+    'image': image_10,
     "available": true,
     "weight": 0.8,
     "options": [

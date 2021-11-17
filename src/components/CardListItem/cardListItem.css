@@ -20,6 +20,7 @@
   width: 100%;
   transition: transform 200ms;
   vertical-align: bottom;
+  height: 250px;
 }
 .item-title {
   margin: 5px 0;
