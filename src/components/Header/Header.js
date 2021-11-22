@@ -1,5 +1,5 @@
 import React from 'react'
-import './header.css'
+import './Header.css'
 import MiniCart from './mini-cart/mini-cart'
 import { Link } from 'react-router-dom'
 
