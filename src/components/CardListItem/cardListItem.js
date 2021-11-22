@@ -4,8 +4,7 @@ import { connect } from 'react-redux'
 import { addToCart, allRemoveToCart } from '../../actions/actions'
 import cn from 'classnames'
 
-
-export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart }) => {
+export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart, isDisabled }) => {
     const [itemInCart, setItemInCart] = useState(false)
     const item = cart.filter(item => item.id === id)
    
@@ -24,12 +23,12 @@ export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart }) => {
     return (
         itemInCart ? 
         <button className={classButton}
-        onClick={() => allRemoveToCart(id)}>
+        onClick={() => allRemoveToCart(id)} disabled={isDisabled}>
         Added
        </button>
         :  
         <button className={classButton}
-        onClick={() => addToCart(id)}>
+        onClick={() => addToCart(id)} disabled={isDisabled}>
         Add to Cart
         </button>
     )

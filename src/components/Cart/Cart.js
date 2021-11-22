@@ -12,11 +12,11 @@ import {
 const Cart = ({ cart, addToCart, removeToCart, allRemoveToCart }) => {
 
   const renderRow = (item, i) => {
-    const { id, name, price, count } = item
+    const { id, name, quantity,price, count } = item
     return (
       <tr key={id}>
         <td>{i + 1}</td>
-        <td>{name}</td>
+        <td>{name +" "+ quantity }</td>
         <td>
           <button className='dec' onClick={() => removeToCart(id)}>-</button>
           {count}

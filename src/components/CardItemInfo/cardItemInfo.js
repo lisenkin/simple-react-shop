@@ -1,4 +1,4 @@
-import React, { useState, useEffect,setState } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './cardItemInfo.css'
 import { connect } from 'react-redux'
@@ -41,15 +41,14 @@ const CardItemInfo = (props) => {
                 <img src={currentCard.image} alt={'sorry without pic:('} />
             </div>
             <div className='info__item'>
-                <h4 className='item-title'>{currentCard.name}</h4>
+                <h4 className='item__title'>{currentCard.name}</h4>
                 <p className='description'>{currentCard.brand}</p>
                 <p className='description'>{currentCard.weight} <span>kg</span></p>
-                <h3 className='item-price'>{currentCard.price} <span>nok</span></h3>
-                <ul>
+                <h3 className='item__price'>{currentCard.price} <span>nok</span></h3>
+                  <ul>
                     {
                         currentCard.options.map((option, i) => (
-                            <button style={{ backgroundColor: option.color , color: option.color,borderRadius: 100,
-                                height: 35, weight: 35 }} onClick= {() => (setOptionId(i)) }>  color  </button>
+                            <button className="item__color" style={{ backgroundColor: option.color , color: option.color }} onClick= {() => (setOptionId(i)) }>  color  </button>
                         ))
                     }
                  </ul>
@@ -66,16 +65,18 @@ const CardItemInfo = (props) => {
                <p className="options">Available: {currentCard.options[optionId].quantity}</p>
 
 
-                <ButtonInCart cart={cart} id={idItem} addToCart={addToCart} allRemoveToCart={allRemoveToCart} />
+
+               <ButtonInCart  cart={cart} id={idItem}  color={currentCard.color} addToCart={addToCart} allRemoveToCart={allRemoveToCart} isDisabled={currentCard.options[optionId].quantity === 0 }/>
             </div>
         </div>
     )
 }
-const mapStateToProps = ({ items, cart, item }) => {
+const mapStateToProps = ({ items, cart, item}) => {
     return {
         items: items.allItem,
         cart: cart.cartItems,
         item: item
+       
     }
 }
 const mapDispatchToProps = {

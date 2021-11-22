@@ -7,6 +7,9 @@ const intitialState = {
         cartItems: []
     }
 }
+
+const findItem = (state, itemId) =>  state.find(({ id }) => id === itemId)
+
 const updateCart = (state, idx, numCount = 1) => {
     const { cartItems } = state.cart
 
