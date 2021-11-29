@@ -9,10 +9,10 @@ export const itemsLoading = () => {
         type: 'ITEMS_LOADING',
     }
 }
-export const addToCart = (id) => {
+export const addToCart = (item) => {
     return {
         type: 'ADD_TO_CART',
-        payload: id
+        payload: item
     }
 }
 export const removeToCart = (id) => {

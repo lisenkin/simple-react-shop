@@ -8,8 +8,6 @@ const intitialState = {
     }
 }
 
-const findItem = (state, itemId) =>  state.find(({ id }) => id === itemId)
-
 const updateCart = (state, idx, numCount = 1) => {
     const { cartItems } = state.cart
 
@@ -51,12 +49,17 @@ const updateItem = (item, cartItem = {}, numCount) => {
         id = item.id,
         count = 0,
         name = item.name,
-        price = 0 } = cartItem
+        price = 0,
+        color = item.options[0].color,
+        quantity = item.options[0].quantity
+       } = cartItem
     return {
         id,
         name,
         count: count + numCount,
-        price: price + numCount * item.price
+        price: price + numCount * item.price,
+        color,
+        quantity
     }
 }
 
@@ -79,7 +82,7 @@ const reducer = (state = intitialState, action) => {
             }
         case 'ADD_TO_CART':
             return updateCart(state, action.payload, 1)
-            
+
         case 'REMOVE_TO_CART':
             return updateCart(state, action.payload, -1)
 

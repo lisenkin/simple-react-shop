@@ -4,10 +4,10 @@ import { connect } from 'react-redux'
 import { addToCart, allRemoveToCart } from '../../actions/actions'
 import cn from 'classnames'
 
-export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart, isDisabled }) => {
+export const ButtonInCart = ({ cart,id, addToCart, allRemoveToCart, isDisabled }) => {
     const [itemInCart, setItemInCart] = useState(false)
     const item = cart.filter(item => item.id === id)
-   
+
     useEffect(() => {
         if (item.length > 0) {
             setItemInCart(true)
@@ -21,12 +21,12 @@ export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart, isDisabled 
         'item-in-cart': itemInCart
     })
     return (
-        itemInCart ? 
+        itemInCart ?
         <button className={classButton}
         onClick={() => allRemoveToCart(id)} disabled={isDisabled}>
         Added
        </button>
-        :  
+        :
         <button className={classButton}
         onClick={() => addToCart(id)} disabled={isDisabled}>
         Add to Cart
@@ -35,7 +35,7 @@ export const ButtonInCart = ({ cart, id, addToCart, allRemoveToCart, isDisabled 
 }
 
 const CardListItem = ({ item, addToCart, allRemoveToCart, cart, showInfo }) => {
-    
+
     return (
         <div className="shop-item">
 
@@ -48,7 +48,7 @@ const CardListItem = ({ item, addToCart, allRemoveToCart, cart, showInfo }) => {
             <h3 className="item-price">{item.price} <span>nok</span></h3>
 
             <ButtonInCart cart={cart} id={item.id} addToCart={addToCart} allRemoveToCart={allRemoveToCart} />
-    
+
         </div>
     )
 }
@@ -62,4 +62,4 @@ const mapDispatchToProps = {
     addToCart,
     allRemoveToCart
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CardListItem) 
+export default connect(mapStateToProps, mapDispatchToProps)(CardListItem)
