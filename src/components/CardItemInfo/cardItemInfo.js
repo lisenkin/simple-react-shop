@@ -17,8 +17,9 @@ const CardItemInfo = (props) => {
     } = props
 
 
-    const [item, setItem] = useState({})
-    const [optionId, setOptionId] = useState(0)
+   const [item, setItem] = useState({})
+   const [optionId, setOptionId] = useState(0)
+
     useEffect(() => {
         if (items.length) {
             setItem(() => {
@@ -30,10 +31,9 @@ const CardItemInfo = (props) => {
             return
         }
     }, [idItem, items])
-
-    //add  localstorage for currentid 
+    //add  localstorage for currentid
     const currentCard = JSON.parse(localStorage.getItem('currentCard'))
- 
+
 //options is really awfull :)
     return (
         <div className='info__item_wrap'>
@@ -66,21 +66,20 @@ const CardItemInfo = (props) => {
 
 
 
-               <ButtonInCart  cart={cart} id={idItem}  color={currentCard.color} addToCart={addToCart} allRemoveToCart={allRemoveToCart} isDisabled={currentCard.options[optionId].quantity === 0 }/>
+               <ButtonInCart  cart={cart} optionId={optionId} id={idItem} addToCart={addToCart} allRemoveToCart={allRemoveToCart} isDisabled={currentCard.options[optionId].quantity === 0 }/>
             </div>
         </div>
     )
 }
-const mapStateToProps = ({ items, cart, item}) => {
+const mapStateToProps = ({ items,cart, item}) => {
     return {
         items: items.allItem,
         cart: cart.cartItems,
-        item: item
-       
+        item: item,
     }
 }
 const mapDispatchToProps = {
     addToCart,
     allRemoveToCart
 }
-export default connect(mapStateToProps, mapDispatchToProps)(CardItemInfo)  
+export default connect(mapStateToProps, mapDispatchToProps)(CardItemInfo)

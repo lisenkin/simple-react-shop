@@ -10,17 +10,16 @@ import {
 } from '../../actions/actions'
 
 const Cart = ({ cart, addToCart, removeToCart, allRemoveToCart }) => {
-
   const renderRow = (item, i) => {
-    const { id, name, quantity,price, count } = item
+    const { id, name,color, quantity,price, count } = item
     return (
       <tr key={id}>
         <td>{i + 1}</td>
-        <td>{name +" "+ quantity }</td>
+        <td>{name +" "+ color+ " " + quantity }</td>
         <td>
           <button className='dec' onClick={() => removeToCart(id)}>-</button>
           {count}
-          <button className='inc' onClick={() => addToCart(id)}>+</button>
+          <button className='inc' onClick={() => addToCart(id)} disabled={count >= quantity}>+</button>
         </td>
         <td>{price}  <span>nok</span></td>
         <td>
@@ -65,4 +64,4 @@ const mapDispatchToProps = {
   removeToCart,
   allRemoveToCart
 }
-export default connect(mapStateToProps, mapDispatchToProps)(Cart) 
+export default connect(mapStateToProps, mapDispatchToProps)(Cart)
